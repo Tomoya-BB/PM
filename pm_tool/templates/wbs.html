@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>WBS</h1>
+  <form method="post" action="{{ url_for('main.add_wbs_item') }}" class="mb-4">
+    <div class="mb-3">
+      <input type="text" name="name" placeholder="Item name" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Item</button>
+  </form>
+  <ul>
+    {% for item in items %}
+    <li>{{ item.name }}</li>
+    {% else %}
+    <li>No items</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
